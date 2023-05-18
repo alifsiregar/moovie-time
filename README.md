@@ -47,7 +47,15 @@ Global styles for the project.
 
 ## Documentation
 
-In order to start the app in development mode,  you can run this syntax in the project directory:
+First, clone the repo to your local machine. Then, run this syntax in the project directory to install all the dependencies:
+
+### `npm install`
+
+Once it's done installing, rename the `.env.example` file into `.env.local` to add the environment needed.
+
+_Note: For MovieDB token, I highly recommend you to use your own token. To create one, simply go ahead to [https://developer.themoviedb.org/docs](https://developer.themoviedb.org/docs), create an account, and follow the documentation along. If it's too much for you, you are definitely welcome to use the token that I have provided in the example env. However, I cannot guarantee that it will still be working correctly by the time you are reading this._
+
+Once all of that is done, now you are ready to start the app. In order to start it in development mode,  you can run this syntax in the project directory:
 
 ### `npm run dev`
 
