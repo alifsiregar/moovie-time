@@ -10,6 +10,7 @@ import {
     getMovieGenres,
     getTVShowsGenres,
     getDiscoverTVShows,
+    getQueryMovieSearch,
 } from "@/lib/outbound";
 
 // types
@@ -107,5 +108,11 @@ export const useQueryTVShowsGenres = (onSuccess: (e: GenresCheckedType[]) => voi
     return useQuery('query-tv-shows-genres', queryFn, {
         select: formatData,
         onSuccess,
+    });
+};
+
+export const useQueryMovieSearch = (query: string) => {
+    return useQuery([`query-movie-search`, query], () => getQueryMovieSearch(query), {
+        enabled: false,
     });
 };

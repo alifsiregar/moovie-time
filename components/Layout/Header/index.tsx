@@ -1,16 +1,41 @@
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 // components
 import Image from "@/components/Image";
-import Searchbar from "./components/searchbar";
+import Searchbar from "./components/Searchbar";
+import CategoriesDropdown from './components/CategoriesDropdown';
+
+// consts
+const DEFAULT_CATEGORIES = [
+  'ACTION',
+  'ADVENTURE',
+  'ANIMATION',
+  'COMEDY',
+  'CRIME',
+  'DOCUMENTARY',
+  'DRAMA',
+  'FAMILY',
+  'FANTASY',
+  'HISTORY',
+  'HORROR',
+];
 
 const Header = () => {
 
   const router = useRouter();
+  const dropdownMenuRef = useRef();
+
+  const [showCategories, setShowCategories] = useState<boolean>(false);
 
   const handleMenuRedirect = (path: string) => {
     router.push(path);
+    setShowCategories(false);
   };
+
+  const handleChangeCategories = (param: boolean) => {
+    setShowCategories(param);
+  }
 
   return (
     <div className=" bg-bgGray-100 text-textWhite flex py-[18px] px-[120px] justify-between">
@@ -24,18 +49,12 @@ const Header = () => {
         />
         <Searchbar />
         <div className=" uppercase flex justify-center items-center">
-          <div className="flex gap-[11px] mr-[48px] justify-center items-center">
-            <Image
-              src="/icons/grid_icon.png"
-              width="20px"
-              height="20px"
-              alt="Category Header Menu Icon"
-              containerStyle="w-[20px] h-[20px]"
-            />
-            <span>
-              Categories
-            </span>
-          </div>
+          <CategoriesDropdown 
+            onClick={handleChangeCategories}
+            categories={DEFAULT_CATEGORIES}
+            showCategories={showCategories}
+            ref={dropdownMenuRef}
+          />
           <div className=" flex gap-[39px]">
             <span onClick={() => handleMenuRedirect('/movies')} className="cursor-pointer">
               Movies

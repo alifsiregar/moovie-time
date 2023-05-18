@@ -6,6 +6,7 @@ import { dehydrate, QueryClient } from 'react-query';
 import MovieCard from "@/components/MovieCard";
 import Title from "@/components/Title";
 import Button from "@/components/Button";
+import Hero from "@/components/Hero";
 
 // services
 import { useQueryPopularAndUpcomingMovies } from '@/lib/services';
@@ -57,6 +58,9 @@ export default function Home() {
 
   return (
     <>
+     <Hero
+        data={upcomingMoviesData?.slice(0, 4) || []}
+      />
     <div className="px-[120px] pb-[120px] flex flex-col relative before:content-[''] before:h-[333px] before:bg-bgGray-100 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-[15px]">
       <div className="relative mt-[120px]">
         <div className=" flex justify-between">
