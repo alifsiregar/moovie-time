@@ -9,9 +9,10 @@ const Footer = () => {
       </span>
       <Image
         src="/images/company_gray_logo.png"
-        width="w-[88px]"
-        height="h-[24px]"
+        width="88px"
+        height="24px"
         alt="Category Header Menu Icon"
+        containerStyle="w-[88px] h-[24px]"
       />
       <span>
         Made with Next JS.

@@ -27,14 +27,14 @@ const Image = ({
   height,
   containerStyle,
   src,
-  fallbackSrc = '/images/fallback-image.jpg',
   alt = '',
+  onClick,
 }: {
+  onClick?: () => void;
   width: string;
   height: string;
-  containerStyle?: string;
+  containerStyle: string;
   src: string;
-  fallbackSrc?: string;
   alt: string;
 }) => {
   const [imageSrc, setImageSrc] = useState('');
@@ -46,7 +46,7 @@ const Image = ({
 
   return (
     <div
-      className={twMerge(clsx('relative flex-shrink-0', width, height, containerStyle))}
+      className={twMerge(clsx('relative flex-shrink-0', containerStyle))}
     >
       <NextImage
         layout="fill"
@@ -56,8 +56,9 @@ const Image = ({
           shimmer(width, height)
         )}`}
         src={imageSrc}
-        onError={() => setImageSrc(fallbackSrc)}
+        onError={() => setImageSrc('/images/fallback_image.jpg')}
         alt={alt}
+        onClick={onClick}
       />
     </div>
   );

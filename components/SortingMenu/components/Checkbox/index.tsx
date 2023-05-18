@@ -5,9 +5,13 @@ import { twMerge } from 'tailwind-merge';
 const Checkbox = ({
   text,
   customStyle,
+  checked,
+  onChange,
 }: {
   text: string;
   customStyle: string;
+  checked: boolean;
+  onChange: (e: any) => void
 }) => {
   return (
     <div className={twMerge(clsx('flex items-center justify-between', customStyle))}>
@@ -17,6 +21,8 @@ const Checkbox = ({
       <input
         type='checkbox'
         className=' cursor-pointer'
+        checked={checked}
+        onChange={onChange}
       />
     </div>
   )
