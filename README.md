@@ -1,38 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MOOVIE TIME
 
-## Getting Started
+_Don't forget, it's moovie time!_
 
-First, run the development server:
+"Moovie-Time" is a website to search and discover all your favorite movies and TV shows. This project is made in order to complete one of the recruitment stage of Perqara.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Next JS
+* Typescript
+* Tailwind
+* Axios
+* React Query
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This is the structure of the code that I have created. I have adjusted it in hopes that it will be easier for anyone who come upon this to understand the code thoroughly.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### components
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The `components` folder is for global components that are used across pages or within the components itself. For specified components that are only used inside certain pages, I have created a `components` folder within it's respective folders.
 
-## Learn More
+### lib
 
-To learn more about Next.js, take a look at the following resources:
+The `lib` folder is for tools and utilities that are used to do certain tasks. Inside, you are going to find 3 _folders_ and a file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. `outbound`
+2. `services`
+3. `utils`
+4. `types`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+All of the functions used for HTTP requests are stored in `outbound`. Inside, you can find all the functions for requests that are using _axios_. `services` folder contains the model which utilizes the requests function in `oubtound`. This is where the _React Query_ functions are placed which will then be used in the UI/view components. `utils` is used to store all the utilities functions. Last, I placed all the types that are used in the `types` file.
 
-## Deploy on Vercel
+### pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is where I store all the pages. It contains the U/view files.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_Note: Due to time constraint, I deeply apologize for that I have not been able to finish the movie detail page. However, other pages have been created down to their tiny details just like requested in the figma._
+
+### public
+
+All images and icons are stored here to be used in the `pages` folder.
+
+### styles
+
+Global styles for the project.
+
+## Documentation
+
+In order to start the app in development mode,  you can run this syntax in the project directory:
+
+### `npm run dev`
+
+By default, the app will open in [http://localhost:3000](http://localhost:3000). The page also has hot reload, which means that it will refresh if you make any edits.
+
+If you want to build the app for production,  you can run this syntax in the project directory:
+
+### `npm run build`
+
+This will bundle the React in production mode and optimizes the build for the best performance.
+
+Once it's done bundling the app, run this syntax next:
+
+### `npm run start`
+
+The minifed build will the be served and can now be accessed.

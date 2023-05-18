@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import { dehydrate, QueryClient } from 'react-query';
 
@@ -119,6 +120,11 @@ const Movies = () => {
   };
 
   return (
+    <>
+    <Head>
+      <title>Discover Movies - Moovie Time!</title>
+      <meta property="og:title" content="Discover Movies - Moovie Time!" key="title" />
+    </Head>
     <div className="pt-[80px] relative before:content-[''] before:absolute before:h-[323px] before:bottom-0 before:left-0 before:right-0 before:top-0 before:bg-bgGray-100 before:z-0">
       <div className=" px-[120px] pb-[93px]">
         <Title
@@ -160,6 +166,7 @@ const Movies = () => {
         </div>
       </div>
     </div>
+    </>
   )
 };
 
